@@ -2,6 +2,7 @@ package com.example.restaurant_order_tracker.controller;
 
 import com.example.restaurant_order_tracker.model.Restaurant;
 import com.example.restaurant_order_tracker.service.RestaurantService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class RestaurantController {
         return restaurantService.getAllRestaurants();
     }
     @PostMapping
-    public Restaurant addRestaurant(@RequestBody Restaurant restaurant) {
+    public Restaurant addRestaurant(@Valid @RequestBody Restaurant restaurant) {
         return restaurantService.addRestaurant(restaurant);
     }
 }
